@@ -1,0 +1,12 @@
+req = "GET /taphandled/p.php?d=";
+req += pourDuration;
+req += " HTTP/1.0\n\n";
+Serial.println(req);
+char reqBuf[req.length()+1];
+req.toCharArray(reqBuf, req.length()+1);
+
+suc = WiFly.openConnection("173.201.58.131", 5000);
+WiFly.write(reqBuf);
+delay(100);
+WiFly.closeConnection(true);
+delay(100);
